@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: toy-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: toy-app
+  template:
+    metadata:
+      labels:
+        app: toy-app
+    spec:
+      containers:
+        # To use local docker images, see link blog :
+        - name: toy-app
+          image: toy-image:latest
+          imagePullPolicy: Never
+          resources:
+            limits:
+              memory: "1536Mi"
+              cpu: "1000m"
+          ports:
+            - name: httpport
+              containerPort: 9090
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: toy-app-svc
+  namespace: default
+spec:
+  type: NodePort
+  ports:
+    - port: 9090
+      targetPort: 9090
+      nodePort: 30000  # 사용하고 싶은 NodePort 설정
+  selector:
+    app: toy-app

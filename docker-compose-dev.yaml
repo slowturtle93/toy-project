@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  app:
+    image: toy-image:latest
+    container_name: toy-app
+    ports:
+      - "9090:9090"
