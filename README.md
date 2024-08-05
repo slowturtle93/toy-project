@@ -20,11 +20,11 @@ minikube를 이용하여 kubernetes 환경 구축(docker, docker-compose 없다�
  - docker image build 및 kubernetes pod, deployment, service 실행
    - docker build -f ./Dockerfile -t {image-name}:{tag} .
    - kubectl apply -f deployment.yaml
-   - minikube service {service-name} --url 명령어를 통해 접근 <ip>:<port> 확인
+   - minikube service {service-name} --url 명령어를 통해 접근 {ip}:{port} 확인
  - (주의) kubernetes service 실행 시 nodePort로의 접근 불가
    - 호스트에서 bridge 네트워크 인터페이스가 존재하지 않기 때문에 컨테이너에 IP로는 접근을 못하고 포트 포워딩을 통한 터널링으로 접근을 할 수 있다
      - https://code1212-uh.tistory.com/19
-   - minikube service toy-app-svc --url 명령어를 통해 minikube로 접근가능한 <ip>:<port>로 접근
+   - minikube service toy-app-svc --url 명령어를 통해 minikube로 접근가능한 {ip}:{port}로 접근
 
 
 kubectl 명령어
