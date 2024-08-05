@@ -33,6 +33,4 @@ kubectl 명령어
 - kubectl delete deployment {deployment-name} -n {name-space} (deplyment, pod 삭제)
 - kubectl describe pod {pod-name} (pod 상세 정보 확인)
 
-kubectl delete deployment/my-app
-
 ========================================================================
